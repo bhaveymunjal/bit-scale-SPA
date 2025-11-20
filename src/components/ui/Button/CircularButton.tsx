@@ -11,7 +11,7 @@ interface CircularButtonProps {
 }
 
 export const CircularButton: FC<CircularButtonProps> = ({iconName, iconClassName, iconStyle, buttonClassName, onClick}) => {
-    const defaultClassName = 'p-1 border border-bit-light-gray shadow-[2px_2px_4px_0px_#0000000A] rounded-full flex justify-center items-center'
+    const defaultClassName = 'p-1 border border-bit-light-gray shadow-[2px_2px_4px_0px_#0000000A] rounded-full flex justify-center items-center cursor-pointer'
     return (
         <button onClick={onClick} className={twMerge(defaultClassName, buttonClassName)}>
             <MaterialSymbolIcon

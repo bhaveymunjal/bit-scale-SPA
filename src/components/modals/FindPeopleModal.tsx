@@ -3,7 +3,10 @@ import { MaterialSymbolIcon } from "../ui/MaterialSymbolIcon/MaterialSymbolIcon"
 import { Text } from "../ui/Text/Text";
 import { Button } from "../ui/Button";
 import { FilterAccordion } from "./FilterAccordion";
-import {CircularButton} from "../ui/Button/CircularButton.tsx";
+import { CircularButton } from "../ui/Button/CircularButton.tsx";
+import { Table } from "../ui/Table";
+import { peopleTableColumns } from "../../data/peopleTableColumns";
+import { PeopleSearchEmptyState } from "../ui/EmptyState";
 
 interface FindPeopleModalProps {
     isOpen: boolean;
@@ -73,7 +76,7 @@ export const FindPeopleModal: FC<FindPeopleModalProps> = ({ isOpen, onClose }) =
                                 label="Preview Result"
                                 leadingIconName="visibility"
                                 variant="filled"
-                                onClick={() => {}}
+                                onClick={() =>{}}
                             />
                         </div>
                     </div>
@@ -89,47 +92,25 @@ export const FindPeopleModal: FC<FindPeopleModalProps> = ({ isOpen, onClose }) =
                             </div>
                         </div>
                         <div className="flex items-center justify-between shrink-0 mb-2">
-                            <Text content="Found 0 companies. Click preview to view results" className="text-xs font-medium text-gray-600" as="p" />
+                            <Text 
+                                content={"Found 0 people. Click preview to view results"}
+                                className="text-xs font-medium text-gray-600" 
+                                as="p" 
+                            />
                             <div className="flex items-center gap-1 text-bit-dark-orange text-xs font-semibold">
                                 <MaterialSymbolIcon iconName="lock_open" className="!text-sm" />
                                 <span>Unlock 100,000 leads with Enterprise Plan*</span>
                             </div>
                         </div>
 
-                        {/* Table Headers */}
-                        <div className="bg-gray-50 px-6 py-3 grid grid-cols-6 gap-4 text-xs font-semibold text-gray-500 uppercase tracking-wide shrink-0">
-                            <div className="col-span-1">Name</div>
-                            <div className="col-span-1">Title</div>
-                            <div className="col-span-1">Headline</div>
-                            <div className="col-span-1">LinkedIn URL</div>
-                            <div className="col-span-1">Company</div>
-                            <div className="col-span-1">Company URL</div>
-                        </div>
-
-                        {/* Empty State Content */}
-                        <div className="flex-1 flex flex-col items-center justify-center p-8 text-center overflow-y-auto">
-                            <div className="w-48 h-48 mb-6 relative">
-                                {/* This is a placeholder for the illustration in your image */}
-                                {/* You can use an SVG or img tag here */}
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <MaterialSymbolIcon iconName="checklist" className="!text-9xl text-blue-100" />
-                                </div>
-                            </div>
-
-                            <div className="max-w-md space-y-2">
-                                <Text
-                                    content="Start your Company search , preview, and import companies for enrichment by applying any filter in the left panel."
-                                    className="text-sm text-gray-500 leading-relaxed"
-                                    as="p"
-                                />
-                                <Text content="OR" className="text-xs font-bold text-gray-400 my-2 block" as="span" />
-                                <Text
-                                    content="Import companies from saved Search."
-                                    className="text-sm text-gray-500"
-                                    as="p"
-                                />
-                            </div>
-                        </div>
+                        {/* Table */}
+                        <Table
+                            columns={peopleTableColumns}
+                            data={[]}
+                            emptyState={<PeopleSearchEmptyState />}
+                            gridCols="grid-cols-6"
+                            containerClassName="flex-1"
+                        />
                     </div>
                 </div>
             </div>
