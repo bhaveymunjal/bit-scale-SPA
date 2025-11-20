@@ -1,7 +1,12 @@
 import {Text} from "../ui/Text/Text.tsx";
 import {Button} from "../ui/Button";
+import type {FC} from "react";
 
-export const Header = () => {
+interface HeaderProps {
+ onButtonClick: () => void;
+}
+
+export const Header: FC<HeaderProps> = ({onButtonClick}) => {
     return (
         <div className="flex items-start justify-between mb-5 flex-wrap gap-5">
             <div>
@@ -11,7 +16,7 @@ export const Header = () => {
             {/* Actions Bar */}
             <div className="flex justify-end gap-3">
                 <Button label="Find Companies" leadingIconName="apartment" variant="outlined" onClick={() => {}} />
-                <Button label="Find People" leadingIconName="person_search" variant="outlined" onClick={() => {}} />
+                <Button label="Find People" leadingIconName="person_search" variant="outlined" onClick={onButtonClick} />
                 <Button label="New Grid" leadingIconName="add" variant="filled" onClick={() => {}} />
             </div>
         </div>
