@@ -4,6 +4,15 @@
     font-variation-settings: 'FILL' 1;
 }
 
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
 @theme {
     --color-gray-900: #111928;
     --color-gray-800: #1F2A37;
